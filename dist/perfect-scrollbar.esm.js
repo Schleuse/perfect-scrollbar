@@ -1063,8 +1063,8 @@ var touch = function(i) {
 
         applyTouchMove(speed.x * 30, speed.y * 30);
 
-        speed.x *= 0.8;
-        speed.y *= 0.8;
+        speed.x *= 1 - i.settings.swipeEasingFriction;
+        speed.y *= 1 - i.settings.swipeEasingFriction;
       }, 10);
     }
   }
@@ -1096,6 +1096,7 @@ var defaultSettings = function () { return ({
   suppressScrollX: false,
   suppressScrollY: false,
   swipeEasing: true,
+  swipeEasingFriction: 0.2,
   useBothWheelAxes: false,
   wheelPropagation: true,
   wheelSpeed: 1,
